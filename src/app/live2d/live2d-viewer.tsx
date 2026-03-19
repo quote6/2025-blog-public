@@ -96,6 +96,8 @@ export default function Live2DViewer() {
 				model.x = width / 2
 				model.y = height / 2
 				model.scale.set(0.25, 0.25)
+
+				model.motion(0)
 				
 				setStatus('ready')
 			} catch (err) {
