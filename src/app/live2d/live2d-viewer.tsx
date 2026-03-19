@@ -18,7 +18,8 @@ interface Live2DModelInstance {
 }
 
 const CDN_SCRIPTS = [
-	'https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.2.0/browser/pixi.min.js',
+	//'https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.2.0/browser/pixi.min.js',
+	"https://cdn.jsdelivr.net/npm/pixi.js@6.5.2/dist/browser/pixi.min.js",
 	'https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js',
 	'https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/cubism4.min.js'
 ]
