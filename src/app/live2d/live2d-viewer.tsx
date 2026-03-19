@@ -94,13 +94,13 @@ export default function Live2DViewer() {
 
 				const model = await Live2DModel.from(MODEL_URL)
 				app.stage.addChild(model)
+
+				await model.motion('');
 				
 				model.anchor.set(0.5, 0.5)
 				model.x = width / 2
 				model.y = height / 2
 				model.scale.set(0.5, 0.5)
-				
-				model.motion('')
 				
 				setStatus('ready')
 			} catch (err) {
