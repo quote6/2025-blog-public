@@ -97,7 +97,7 @@ export default function Live2DViewer() {
 				model.x = width / 2
 				model.y = height / 2
 				model.scale.set(0.25, 0.25)
-
+				PIXI.live2d.config.cubism4.setOpacityFromMotion = true;
 				model.motion('Tap')
 				
 				setStatus('ready')
