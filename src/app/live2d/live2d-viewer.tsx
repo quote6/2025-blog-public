@@ -93,6 +93,17 @@ export default function Live2DViewer() {
 				app.stage.addChild(model)
 				
 				console.log('Hello, this is test log!')
+				// --- 👇 核心检测代码 (就这几行) ---
+      
+      			// 获取底层模型对象
+				const nativeModel = model._model
+				// 查找 'PartLeftHand01' 的索引
+				const index = nativeModel.drawables.ids.findIndex((id: string) => id === 'PartLeftHand01')
+					if (index !== -1) {
+						console.log('✅ 找到了 PartLeftHand01！索引位置:', index)
+					} else {
+						console.warn('❌ 没找到 PartLeftHand01')
+					}
 				
 				model.anchor.set(0.5, 0.5)
 				model.x = width / 2
