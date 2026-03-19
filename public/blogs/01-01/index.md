@@ -15,4 +15,4 @@
 [Multiple overlapping hands with the default value false of config.cubism4.setOpacityFromMotion](https://github.com/guansss/pixi-live2d-display/issues/131)
 
 上面的最后一个链接就是分享东方角色live2d的大佬提到这种问题的解决方案。虽然不完美，但好在至少能正常显示了。
-按照上面的大佬的方案，虽然解决了手部部件重叠显示的问题，但是并不稳定，有些时候，在刷新页面的时候，live2d模型又会显示异常，好在这种情况的概率比较低，暂时就这样了。如果想真正且完美的解决的话可能就需要好好学习一下live2d的相关知识，我觉得很有可能需要自己用live2d Cubism Editor来重新制作这个模型。所以还是又好多东西需要学习啊，不过本次折腾也收获颇丰。很开心
+按照上面的大佬的方案，虽然解决了手部部件重叠显示的问题，但是并不稳定，有些时候，在刷新页面的时候，live2d模型又会显示异常，好在这种情况的概率比较低，暂时就这样了。如果想真正且完美的解决的话可能就需要好好学习一下live2d的相关知识，我觉得很有可能需要自己用live2d Cubism Editor来重新制作这个模型。所以还是有好多东西需要学习啊，不过本次折腾也收获颇丰。很开心
