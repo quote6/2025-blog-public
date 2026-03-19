@@ -91,39 +91,16 @@ export default function Live2DViewer() {
 
 				const model = await Live2DModel.from(MODEL_URL)
 				app.stage.addChild(model)
-
-				// === 修复手部重影代码 (已修复报错) ===
-				// 1. 安全检查：确保模型内部结构已经加载完成
-				if (model.internalModel && model.internalModel.coreModel) {
-					// 2. 获取 IDs 列表 (使用可选链 ?. 防止报错)
-					const drawableIds = model.internalModel.coreModel.drawables?.ids	
-					// 3. 如果获取到了 IDs 列表，才执行后续逻辑
-					if (drawableIds) {
-						// 定义你希望保留显示的“白名单” ID
-						const visibleHands = ['PartLeftHand01', 'PartRightHand01']
-						// 4. 遍历所有部件
-						for (let i = 0; i < drawableIds.length; i++) {
-							const partId = drawableIds[i]
-							// 筛选逻辑：如果部件名字里包含 "Hand"
-							if (partId.includes('Hand')) {
-								// 如果不在白名单里 (即 02-07)，则强制隐藏
-								if (!visibleHands.includes(partId)) {
-									const part = model.getChildByPath(partId)
-										if (part) {
-											part.alpha = 0 // 设置透明度为 0
-										}
-								}
-							}
-						}
-					}
-				}
-				// === 修复结束 ===
+				
+				console.log('Hello, this is test log!')
 				
 				model.anchor.set(0.5, 0.5)
 				model.x = width / 2
 				model.y = height / 2
 				model.scale.set(0.25, 0.25)
 
+				console.log('Hello, this is test log!')
+				
 				setStatus('ready')
 			} catch (err) {
 				setErrorMsg(err instanceof Error ? err.message : String(err))
