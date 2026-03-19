@@ -69,6 +69,8 @@ export default function Live2DViewer() {
 					PIXI as { Application: new (opts: { view: HTMLCanvasElement; width?: number; height?: number; backgroundAlpha?: number }) => PixiAppInstance }
 				).Application
 
+				PIXI.live2d.config.cubism4.setOpacityFromMotion = true; // 补丁用于修复某些模型文件没有pose
+				
 				const Live2DModel = (PIXI as { live2d?: { Live2DModel: { from: (url: string) => Promise<Live2DModelInstance> } } }).live2d?.Live2DModel
 
 				if (!Live2DModel) {
@@ -96,8 +98,8 @@ export default function Live2DViewer() {
 				model.anchor.set(0.5, 0.5)
 				model.x = width / 2
 				model.y = height / 2
-				model.scale.set(0.25, 0.25)
-				PIXI.live2d.config.cubism4.setOpacityFromMotion = true;
+				model.scale.set(0.5, 0.5)
+				
 				model.motion('')
 				
 				setStatus('ready')
