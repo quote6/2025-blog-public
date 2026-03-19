@@ -92,6 +92,30 @@ export default function Live2DViewer() {
 				const model = await Live2DModel.from(MODEL_URL)
 				app.stage.addChild(model)
 
+				/* 针对当前使用的Live2Dm模型增加修复多个手部部件重叠显示的问题 */
+				// === 修复手部重影代码 (替换原有代码) ===
+				// 1. 获取模型所有的部件 ID 列表
+				const parts = model.internalModel.coreModel.drawables
+				// 2. 定义你希望保留显示的“白名单” ID
+				const visibleHands = ['PartLeftHand01', 'PartRightHand01']
+				// 3. 遍历所有部件
+				for (let i = 0; i < parts.ids.length; i++) {
+  					const partId = parts.ids[i]
+  					// 4. 筛选逻辑：如果部件名字里包含 "Hand" (不管是左手还是右手)
+  					if (partId.includes('Hand')) {
+    					// 检查它是否在白名单里
+    					if (!visibleHands.includes(partId)) {
+      						// 如果不在白名单 (即 02, 03...07)，则强制隐藏
+      						const part = model.getChildByPath(partId)
+      						if (part) {
+        						part.alpha = 0 // 设置透明度为 0
+        						// console.log(`隐藏多余部件: ${partId}`) // 调试用
+      						}
+    					}
+  					}
+				}
+				// === 修复结束 ===
+
 				model.anchor.set(0.5, 0.5)
 				model.x = width / 2
 				model.y = height / 2
