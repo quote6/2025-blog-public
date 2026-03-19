@@ -7,7 +7,7 @@
     ],
     "Physics": "object_live2d_042_501.asset.physics3.json",
     "Motions": {
-      "": [
+      "Tap": [
         {
           "File": "motions/LIVE2D_042_501_31.motion3.json"
         },
